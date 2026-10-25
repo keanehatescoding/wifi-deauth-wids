@@ -1,0 +1,4 @@
+{"time": "t=    17s", "src": "d2:f8:5d:fb:e6:53", "deauth_per_s": 199.0, "fps": 199.0, "rssi_mean": -52.391959798994975, "rssi_std": 2.786536113802804, "confidence": 1.0, "action": "MAC added to results/blocked_macs.txt"}
+{"time": "t=    23s", "src": "62:18:99:74:f6:52", "deauth_per_s": 139.0, "fps": 427.0, "rssi_mean": -48.412177985948475, "rssi_std": 1.9267432655751324, "confidence": 1.0, "action": "NOT blocked: protected MAC, probably spoofed - check signal strength / investigate"}
+{"time": "t=    27s", "src": "d2:f8:5d:fb:e6:53", "deauth_per_s": 269.0, "fps": 269.0, "rssi_mean": -52.12639405204461, "rssi_std": 2.4416340581656253, "confidence": 1.0, "action": "already blocklisted"}
+{"time": "t=    33s", "src": "62:18:99:74:f6:52", "deauth_per_s": 124.0, "fps": 426.0, "rssi_mean": -48.347417840375584, "rssi_std": 1.9454817395997999, "confidence": 0.98, "action": "NOT blocked: protected MAC, probably spoofed - check signal strength / investigate"}

@@ -1,0 +1,54 @@
+{
+  "results": {
+    "RandomForest": {
+      "accuracy": 0.9998069870681335,
+      "precision": 1.0,
+      "recall": 0.9955257270693513,
+      "f1": 0.9977578475336323
+    },
+    "DecisionTree": {
+      "accuracy": 0.9992279482725342,
+      "precision": 0.9845474613686535,
+      "recall": 0.9977628635346756,
+      "f1": 0.9911111111111112
+    },
+    "Threshold baseline (deauth/s >= 10)": {
+      "accuracy": 0.9900598340088786,
+      "precision": 1.0,
+      "recall": 0.7695749440715883,
+      "f1": 0.8697850821744627
+    },
+    "Always 'normal'": {
+      "accuracy": 0.9568616097278517,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0
+    }
+  },
+  "confusion_matrix": [
+    [
+      9915,
+      0
+    ],
+    [
+      2,
+      445
+    ]
+  ],
+  "cv_f1_mean": 0.9960483595200627,
+  "cv_f1_std": 0.0019254900113924226,
+  "recall_low_rate": 0.9805825242718447,
+  "recall_high_rate": 1.0,
+  "feature_importance": {
+    "rssi_mean": 0.003276299137535533,
+    "frac_bcast": 0.009497877052334396,
+    "n_uniq_dst": 0.019103702721008253,
+    "fps": 0.03030100536181359,
+    "rssi_std": 0.057233196362123095,
+    "frac_mgmt": 0.12628893104223657,
+    "deauth_rate": 0.3310955826227513,
+    "frac_deauth": 0.4232034057001973
+  },
+  "n_windows": 34324,
+  "n_attack_windows": 1371
+}

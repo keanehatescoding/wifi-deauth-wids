@@ -1,0 +1,18 @@
+34,324 windows | attack windows: 1371 (3.99%) | runs: 120
+
+Test-set results (held-out runs)
+                                     accuracy  precision  recall      f1
+RandomForest                           0.9998     1.0000  0.9955  0.9978
+DecisionTree                           0.9992     0.9845  0.9978  0.9911
+Threshold baseline (deauth/s >= 10)    0.9901     1.0000  0.7696  0.8698
+Always 'normal'                        0.9569     0.0000  0.0000  0.0000
+
+Random Forest confusion matrix  [rows = true, cols = predicted]
+             pred normal  pred attack
+true normal         9915            0
+true attack            2          445
+
+5-fold run-grouped CV F1: 0.996 +/- 0.002
+Recall on attack windows with <10 deauth/s: 0.981 (n=103) | >=10 deauth/s: 1.000 (n=344)
+
+saved model, confusion_matrix.png, feature_importance.png, metrics.json -> results/

@@ -1,0 +1,6 @@
+numpy
+pandas
+scikit-learn
+matplotlib
+joblib
+scapy   # only needed for capture.py / live mode
