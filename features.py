@@ -31,6 +31,8 @@ FEATURES = [
 
 def build_windows(df: pd.DataFrame, window: float = 1.0) -> pd.DataFrame:
     """Aggregate frames into per-(run, window, src) feature rows."""
+    if window <= 0:
+        raise ValueError(f"window must be positive, got {window}")
     d = df.copy()
     if "run" not in d:
         d["run"] = 0
@@ -52,6 +54,8 @@ def build_windows(df: pd.DataFrame, window: float = 1.0) -> pd.DataFrame:
         agg["n_attack"] = ("label", "sum")
 
     w = d.groupby(["run", "win", "src"], sort=False).agg(**agg).reset_index()
+    # Remove windows with zero frames (can happen if all time values in the group are NA)
+    w = w[w["n_frames"] > 0].copy()
     w["fps"] = w["n_frames"] / window
     w["deauth_rate"] = w["n_deauth"] / window
     w["frac_deauth"] = w["n_deauth"] / w["n_frames"]
