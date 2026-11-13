@@ -129,8 +129,8 @@ def main():
     ap.add_argument("--alert-log", default="results/alerts.jsonl")
     ap.add_argument("--blocklist", default="results/blocked_macs.txt")
     a = ap.parse_args()
-    if a.window <= 0:
-        ap.error("--window must be positive")
+    if not math.isfinite(a.window) or a.window <= 0:
+        ap.error("--window must be a finite, positive value")
 
     model = joblib.load(a.model)
     label_fn = (lambda t: f"t={t:6.0f}s") if a.replay else (lambda t: time.strftime("%H:%M:%S", time.localtime(t)))
