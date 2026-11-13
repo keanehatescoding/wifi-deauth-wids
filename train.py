@@ -29,6 +29,8 @@ def main():
     ap.add_argument("--window", type=float, default=1.0)
     ap.add_argument("--seed", type=int, default=0)
     a = ap.parse_args()
+    if a.window <= 0:
+        ap.error("--window must be positive")
 
     frames = pd.read_csv(a.data)
     w = build_windows(frames, a.window)
