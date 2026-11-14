@@ -1,6 +1,7 @@
 """Train and evaluate the classifier. Splits by whole capture run so test traffic is never seen in training."""
 import argparse
 import json
+import math
 
 import joblib
 import matplotlib
@@ -29,6 +30,8 @@ def main():
     ap.add_argument("--window", type=float, default=1.0)
     ap.add_argument("--seed", type=int, default=0)
     a = ap.parse_args()
+    if not math.isfinite(a.window) or a.window <= 0:
+        ap.error("--window must be a finite, positive value")
 
     frames = pd.read_csv(a.data)
     w = build_windows(frames, a.window)
