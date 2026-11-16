@@ -83,10 +83,12 @@ def simulate_run(rng, run_id, duration, with_attack):
                             ap_rssi[ap], 1.5, 0, rng))
 
     # Deauthentication flood(s)
-    if with_attack:
-        for _ in range(rng.integers(1, 3)):
-            kind = rng.choice(["broadcast", "targeted", "low_rate"], p=[.35, .40, .25])
-            t0 = rng.uniform(8, duration - 30)
+if with_attack:
+             if duration < 38:
+                 raise ValueError("Duration must be at least 38 seconds to generate deauthentication flood(s)")
+             for _ in range(rng.integers(1, 3)):
+                 kind = rng.choice(["broadcast", "targeted", "low_rate"], p=[.35, .40, .25])
+                 t0 = rng.uniform(8, duration - 30)
             t1 = t0 + rng.uniform(8, 22)
             rate = {"broadcast": rng.uniform(15, 300),
                     "targeted": rng.uniform(10, 250),
