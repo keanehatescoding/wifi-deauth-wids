@@ -44,6 +44,8 @@ def frames(times, src, dst, ftype, subtype, rssi_mu, rssi_sd, label, rng):
 
 
 def simulate_run(rng, run_id, duration, with_attack):
+    if with_attack and duration < 38:
+        raise ValueError("Duration must be at least 38 seconds to generate deauthentication flood(s)")
     parts = []
     aps = [rand_mac(rng) for _ in range(rng.integers(1, 3))]
     ap_rssi = {ap: rng.uniform(-55, -35) for ap in aps}
