@@ -31,8 +31,8 @@ FEATURES = [
 
 def build_windows(df: pd.DataFrame, window: float = 1.0) -> pd.DataFrame:
     """Aggregate frames into per-(run, window, src) feature rows."""
-    if window <= 0:
-        raise ValueError(f"window must be positive, got {window}")
+    if not np.isfinite(window) or window <= 0:
+        raise ValueError(f"window must be a finite, positive value, got {window}")
     d = df.copy()
     if "run" not in d:
         d["run"] = 0
