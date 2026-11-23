@@ -35,7 +35,7 @@ def read_pcap(path):
             r = frame_row(pkt)
             if r:
                 rows.append(r)
-    df = pd.DataFrame(rows)
+    df = pd.DataFrame(rows, columns=["time", "src", "dst", "type", "subtype", "rssi"])
     if len(df):
         df["time"] -= df["time"].min()
     return df
